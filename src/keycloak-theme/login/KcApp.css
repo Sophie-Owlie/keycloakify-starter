@@ -1,16 +1,115 @@
+body {
+  background: #fff;
+  color: #222222;
+}
 
 .my-color {
-	color: red;
+  color: red;
 }
 
 .my-font {
-	font-family: 'Work Sans';
+  font-family: "Montserrat";
 }
 
 .my-root-class {
-	background: white;
+  background: white;
 }
 
 .my-root-class body {
-	background: url(./assets/background.svg) no-repeat center center fixed;
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==================== */
+/* Spacing              */
+/* ==================== */
+#kc-header-wrapper {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.login-pf-page .login-pf-page-header {
+  margin-bottom: 5px;
+}
+
+.login-pf-page .login-pf-social-section:first-of-type,
+.login-pf-page .login-pf-social-section:last-of-type {
+  border: none;
+}
+
+/* ==================== */
+/* Typography           */
+/* ==================== */
+#kc-page-title {
+  color: #153849;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 25px;
+  text-align: center;
+}
+
+.kcFormOptionsWrapperClass {
+  color: #3758f9;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ==================== */
+/* Buttons              */
+/* ==================== */
+.btn {
+  border-color: transparent;
+  border-radius: 6px;
+}
+
+.btn-lg {
+  font-size: 16px;
+  height: 48px;
+}
+
+.btn-primary {
+  background-image: none;
+}
+
+#kc-form-buttons {
+  margin: 22px 0 35px;
+}
+
+/* ==================== */
+/* Form                 */
+/* ==================== */
+#kc-form {
+  display: flex;
+  justify-content: center;
+  min-width: 400px;
+}
+
+#kc-form-wrapper {
+  padding: 0;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.form-control {
+  border-color: #dfe4ea;
+  border-radius: 6px;
+  height: 48px !important;
+  padding: 0 16px;
+}
+
+.form-control::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.form-group {
+  margin-bottom: 22px;
 }
