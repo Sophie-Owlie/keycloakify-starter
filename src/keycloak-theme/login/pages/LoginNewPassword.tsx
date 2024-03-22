@@ -27,18 +27,19 @@ export default function LoginNewPassword(
     >
       <form id="kc-new-password-form" action={url.loginAction} method="post">
         <div className={getClassName("kcFormGroupClass")}>
-          <label htmlFor="email" className={getClassName("kcLabelClass")}>
+          <label htmlFor="username" className={getClassName("kcLabelClass")}>
             E-mail associé au compte
           </label>
           <input
             tabIndex={1}
-            id="email"
+            id="username"
             className={getClassName("kcInputClass")}
-            name="email"
+            name="username"
             type="text"
             autoComplete="off"
             placeholder="john.doe@gmail.com"
-            disabled
+            // value={username}
+            readOnly={true}
           />
         </div>
         <div className={getClassName("kcFormGroupClass")}>
@@ -58,17 +59,17 @@ export default function LoginNewPassword(
         </div>
         <div className={getClassName("kcFormGroupClass")}>
           <label
-            htmlFor="confirm_password"
+            htmlFor="password-confirm"
             className={getClassName("kcLabelClass")}
           >
             Confirmer votre nouveau mot de passe
           </label>
           <input
             tabIndex={2}
-            id="confirm_password"
+            id="password-confirm"
             className={getClassName("kcInputClass")}
-            name="confirm_password"
-            type="confirm_password"
+            name="password-confirm"
+            type="password-confirm"
             autoComplete="off"
             placeholder="Mot de passe"
           />

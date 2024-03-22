@@ -27,14 +27,14 @@ export default function LoginResetPassword(
     >
       <form id="kc-reset-password-form" action={url.loginAction} method="post">
         <div className={getClassName("kcFormGroupClass")}>
-          <label htmlFor="email" className={getClassName("kcLabelClass")}>
+          <label htmlFor="username" className={getClassName("kcLabelClass")}>
             Indiquez l’adresse associée à votre compte
           </label>
           <input
             tabIndex={1}
-            id="email"
+            id="username"
             className={getClassName("kcInputClass")}
-            name="email"
+            name="username"
             type="text"
             autoFocus={true}
             autoComplete="off"
