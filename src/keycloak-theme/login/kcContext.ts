@@ -9,7 +9,7 @@ export type KcContextExtension =
   // keycloak-mail-whitelisting define the non standard ftl global authorizedMailDomains, we declare it here.
   | { pageId: "register.ftl"; authorizedMailDomains: string[] }
   | { pageId: "login-reset-password.ftl"; authorizedMailDomains: string[] }
-  | { pageId: "login-new-password.ftl"; authorizedMailDomains: string[] };
+  | { pageId: "login-update-password.ftl"; authorizedMailDomains: string[] };
 
 //NOTE: In most of the cases you do not need to overload the KcContext, you can
 // just call createGetKcContext(...) without type arguments.

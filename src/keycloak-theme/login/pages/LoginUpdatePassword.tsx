@@ -4,15 +4,15 @@ import type { KcContext } from "../kcContext";
 import type { I18n } from "../i18n";
 import { clsx } from "keycloakify/tools/clsx";
 
-export default function LoginNewPassword(
+export default function LoginUpdatePassword(
   props: PageProps<
-    Extract<KcContext, { pageId: "login-new-password.ftl" }>,
+    Extract<KcContext, { pageId: "login-update-password.ftl" }>,
     I18n
   >
 ) {
   const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
-  const { url } = kcContext;
+  const { url, username } = kcContext;
 
   const { getClassName } = useGetClassName({
     doUseDefaultCss,
@@ -25,7 +25,7 @@ export default function LoginNewPassword(
       headerNode="Nouveau mot de passe"
       infoNode={<span>footer</span>}
     >
-      <form id="kc-new-password-form" action={url.loginAction} method="post">
+      <form id="kc-passwd-update-form" action={url.loginAction} method="post">
         <div className={getClassName("kcFormGroupClass")}>
           <label htmlFor="username" className={getClassName("kcLabelClass")}>
             E-mail associé au compte
@@ -37,8 +37,7 @@ export default function LoginNewPassword(
             name="username"
             type="text"
             autoComplete="off"
-            placeholder="john.doe@gmail.com"
-            // value={username}
+            value={username}
             readOnly={true}
           />
         </div>
@@ -55,7 +54,7 @@ export default function LoginNewPassword(
             autoComplete="off"
             placeholder="Mot de passe"
           />
-          <p>Créez un mot de passe de 8 caractères minimum.</p>
+          {/* <p>Créez un mot de passe de 8 caractères minimum.</p> */}
         </div>
         <div className={getClassName("kcFormGroupClass")}>
           <label

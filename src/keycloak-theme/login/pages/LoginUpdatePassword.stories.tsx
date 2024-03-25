@@ -2,11 +2,11 @@ import { Meta, StoryObj } from "@storybook/react";
 import { createPageStory } from "../createPageStory";
 
 const { PageStory } = createPageStory({
-  pageId: "login-new-password.ftl",
+  pageId: "login-update-password.ftl",
 });
 
 const meta = {
-  title: "login/loginNewPassword",
+  title: "login/LoginUpdatePassword",
   component: PageStory,
 } satisfies Meta<typeof PageStory>;
 
