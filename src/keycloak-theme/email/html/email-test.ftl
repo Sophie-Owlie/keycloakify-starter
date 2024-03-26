@@ -1,4 +1,4 @@
 <#import "template.ftl" as layout>
-<@layout.emailLayout>
+<@layout.emailLayout >
 ${kcSanitize(msg("emailTestBodyHtml",realmName))?no_esc}
-</@layout.emailLayout>
+</@layout.emailLayout >

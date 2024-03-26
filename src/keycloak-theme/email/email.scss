@@ -1,0 +1,33 @@
+body {
+  color: #02072c;
+  font-family: "Roboto", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+}
+
+td {
+  line-height: 1.2;
+}
+
+.button {
+  border-radius: 6px;
+  width: 100%;
+}
+
+.button td {
+  padding: 0;
+}
+
+.button a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  width: 100%;
+}
+
+p,
+td {
+  font-size: 19px;
+}
+
+.footer {
+  background-image: url(#{$img-path}/logo.png);
+}

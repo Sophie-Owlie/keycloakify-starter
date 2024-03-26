@@ -42,14 +42,17 @@ export default function LoginUpdatePassword(
           />
         </div>
         <div className={getClassName("kcFormGroupClass")}>
-          <label htmlFor="password" className={getClassName("kcLabelClass")}>
+          <label
+            htmlFor="password-new"
+            className={getClassName("kcLabelClass")}
+          >
             Nouveau mot de passe
           </label>
           <input
             tabIndex={2}
-            id="password"
+            id="password-new"
             className={getClassName("kcInputClass")}
-            name="password"
+            name="password-new"
             type="password"
             autoComplete="off"
             placeholder="Mot de passe"
@@ -68,7 +71,7 @@ export default function LoginUpdatePassword(
             id="password-confirm"
             className={getClassName("kcInputClass")}
             name="password-confirm"
-            type="password-confirm"
+            type="password"
             autoComplete="off"
             placeholder="Mot de passe"
           />
