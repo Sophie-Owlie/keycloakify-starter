@@ -3,6 +3,7 @@ import { useGetClassName } from "keycloakify/login/lib/useGetClassName";
 import type { KcContext } from "../kcContext";
 import type { I18n } from "../i18n";
 import { clsx } from "keycloakify/tools/clsx";
+import { useEffect, useState } from "react";
 
 export default function LoginUpdatePassword(
   props: PageProps<
@@ -18,6 +19,31 @@ export default function LoginUpdatePassword(
     doUseDefaultCss,
     classes,
   });
+
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [passwordConfirm, setPasswordConfirm] = useState<string>("");
+  const [
+    isLoginUpdatePasswordButtonDisabled,
+    setIsLoginUpdatePasswordButtonDisabled,
+  ] = useState(true);
+
+  useEffect(() => {
+    if (newPassword.length > 0 || passwordConfirm.length > 0) {
+      setIsLoginUpdatePasswordButtonDisabled(false);
+    } else {
+      setIsLoginUpdatePasswordButtonDisabled(true);
+    }
+  }, [newPassword, passwordConfirm]);
+
+  const handleNewPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPassword(e.target.value);
+  };
+
+  const handlePasswordConfirmChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setPasswordConfirm(e.target.value);
+  };
 
   return (
     <Template
@@ -56,8 +82,8 @@ export default function LoginUpdatePassword(
             type="password"
             autoComplete="off"
             placeholder="Mot de passe"
+            onChange={handleNewPasswordChange}
           />
-          {/* <p>Créez un mot de passe de 8 caractères minimum.</p> */}
         </div>
         <div className={getClassName("kcFormGroupClass")}>
           <label
@@ -74,6 +100,7 @@ export default function LoginUpdatePassword(
             type="password"
             autoComplete="off"
             placeholder="Mot de passe"
+            onChange={handlePasswordConfirmChange}
           />
         </div>
         <div id="kc-form-buttons" className={getClassName("kcFormGroupClass")}>
@@ -89,6 +116,7 @@ export default function LoginUpdatePassword(
             id="kc-login"
             type="submit"
             value="Réinitialiser le mot de passe"
+            disabled={isLoginUpdatePasswordButtonDisabled}
           />
         </div>
       </form>

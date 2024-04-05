@@ -1,4 +1,4 @@
-import { useState, type FormEventHandler } from "react";
+import { useState, type FormEventHandler, useEffect } from "react";
 import { clsx } from "keycloakify/tools/clsx";
 import { useConstCallback } from "keycloakify/tools/useConstCallback";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
@@ -36,7 +36,25 @@ export default function Login(
 
   const { msg } = i18n;
 
-  const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    if (username.length > 0 || password.length > 0) {
+      setIsLoginButtonDisabled(false);
+    } else {
+      setIsLoginButtonDisabled(true);
+    }
+  }, [username, password]);
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
 
   const onSubmit = useConstCallback<FormEventHandler<HTMLFormElement>>((e) => {
     e.preventDefault();
@@ -52,6 +70,8 @@ export default function Login(
       ?.setAttribute("name", "username");
 
     formElement.submit();
+
+    setIsLoginButtonDisabled(false);
   });
 
   return (
@@ -125,6 +145,7 @@ export default function Login(
                           autoFocus={true}
                           autoComplete="off"
                           placeholder="E-mail *"
+                          onChange={handleUsernameChange}
                         />
                       </>
                     );
@@ -145,6 +166,7 @@ export default function Login(
                   type="password"
                   autoComplete="off"
                   placeholder="Mot de passe *"
+                  onChange={handlePasswordChange}
                 />
               </div>
               <div

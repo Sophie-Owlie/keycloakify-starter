@@ -69,15 +69,29 @@ body {
 .btn {
   border-color: transparent;
   border-radius: 6px;
+  font-weight: 500 !important;
+}
+
+.btn:disabled {
+  background-color: #e5e7eb !important;
+  color: #6b7280 !important;
+  border: transparent !important;
+}
+
+.btn-primary {
+  background-image: none;
+  background-color: #3758f9;
+  color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1b44c8;
 }
 
 .btn-lg {
   font-size: 16px;
   height: 48px;
-}
-
-.btn-primary {
-  background-image: none;
 }
 
 #kc-form-buttons {
@@ -107,6 +121,22 @@ label {
   border-radius: 6px;
   height: 48px !important;
   padding: 0 16px;
+  box-shadow: none;
+}
+
+.form-control:hover {
+  border-color: #3758f9 !important;
+}
+
+.form-control:focus {
+  border-color: #adbcf2 !important;
+  border-width: 3px;
+  box-shadow: none !important;
+}
+
+.form-control:disabled,
+.form-control:read-only {
+  border-color: transparent !important;
 }
 
 .form-control::placeholder {

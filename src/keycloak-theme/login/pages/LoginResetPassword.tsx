@@ -3,6 +3,7 @@ import { useGetClassName } from "keycloakify/login/lib/useGetClassName";
 import type { KcContext } from "../kcContext";
 import type { I18n } from "../i18n";
 import { clsx } from "keycloakify/tools/clsx";
+import { useEffect, useState } from "react";
 
 export default function LoginResetPassword(
   props: PageProps<
@@ -18,6 +19,24 @@ export default function LoginResetPassword(
     doUseDefaultCss,
     classes,
   });
+
+  const [username, setUsername] = useState<string>("");
+  const [
+    isLoginResetPasswordButtonDisabled,
+    setIsLoginResetPasswordButtonDisabled,
+  ] = useState(true);
+
+  useEffect(() => {
+    if (username.length > 0) {
+      setIsLoginResetPasswordButtonDisabled(false);
+    } else {
+      setIsLoginResetPasswordButtonDisabled(true);
+    }
+  }, [username]);
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
 
   return (
     <Template
@@ -39,6 +58,7 @@ export default function LoginResetPassword(
             autoFocus={true}
             autoComplete="off"
             placeholder="E-mail *"
+            onChange={handleUsernameChange}
           />
         </div>
         <div id="kc-form-buttons" className={getClassName("kcFormGroupClass")}>
@@ -54,6 +74,7 @@ export default function LoginResetPassword(
             id="kc-login"
             type="submit"
             value="Envoyer"
+            disabled={isLoginResetPasswordButtonDisabled}
           />
         </div>
         <div className={getClassName("kcFormOptionsWrapperClass")}>
